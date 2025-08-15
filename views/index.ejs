@@ -20,6 +20,10 @@
 </section>
 
 <section class="weatherdata">
-    
+    <% if (initial === true) { %>
+        <p class="weatherdata__status"><%= content %></p>
+    <% } else { %>
+        <p class="weatherdata__status">The temperature now in <%= city %> is <%= content %></p>
+    <% } %>
 </section>
 
