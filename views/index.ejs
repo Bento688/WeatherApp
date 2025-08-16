@@ -1,6 +1,9 @@
+<%- include("partials/header.ejs") %>
+
 <section class="header">
     <div class="header__container">
         <nav class="header__navbar">
+            <p class="header__weathersee">Weather.see</p>
             <p class="linkedin"><a href="#">Linkedin</a></p>
             <p class="github"><a href="#">Github</a></p>
         </nav>
@@ -19,11 +22,18 @@
     </div> 
 </section>
 
-<section class="weatherdata">
+<section class="currentweatherdata">
     <% if (initial === true) { %>
-        <p class="weatherdata__status"><%= content %></p>
+        <p class="currentweatherdata__status"><%= content %></p>
     <% } else { %>
-        <p class="weatherdata__status">The temperature now in <%= city %> is <%= content %></p>
+        <p class="currentweatherdata__status"><%= data.location.name %> // <%= data.current.temp_c %> // <%= data.current.condition.text %> // Feels like: <%= data.current.feelslike_c %></p>
     <% } %>
 </section>
+
+<section class="forecast">
+
+</section>
+
+
+<%- include("partials/footer.ejs") %>
 

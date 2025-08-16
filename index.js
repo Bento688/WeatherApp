@@ -22,11 +22,11 @@ app.post("/fetchdata", async (req, res) => {
         // console.log(process.env.BASE_URL + "/current.json" + "?key=" + process.env.API_KEY + "&q=" + query);
         const result = await axios.get(process.env.BASE_URL + "/current.json" + "?key=" + process.env.API_KEY + "&q=" + query);
         res.render("index.ejs", { 
-            content: result.data.current.temp_c,
-            city: query,
+            data: result.data,
             initial: false,
         });
     } catch (error) {
+        res.redirect("/");
         res.status(404);
         console.log("Error: ", error.message);
     }
