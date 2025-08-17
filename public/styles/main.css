@@ -31,7 +31,7 @@ a {
 
 .header__navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 25px;
 }
 
@@ -127,6 +127,18 @@ a {
     flex: 1;
 }
 
+.currentweatherdata__location-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-img {
+    height: 1rem;
+    width: 1rem;
+    margin: 0 0.75rem;
+}
+
 .currentweatherdata__container {
     padding: 1rem;
     display: flex;
@@ -176,7 +188,12 @@ a {
 .forecast {
     padding: 2rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.forecast__heading {
+    padding: 0.25rem 2rem;
 }
 
 .forecast__container {
@@ -187,10 +204,32 @@ a {
 }
 
 .forecast__card {
+    display: flex;
+    justify-content: space-between;
     padding: 1rem;
     border: 1px solid #333;
     border-radius: 1rem;
     margin: 0 0 0.5rem 0;
+}
+
+.card-bold {
+    font-weight: 600;
+    margin: 0 4px;
+}
+
+.forecast__card p {
+    display: flex;
+    align-items: center;
+}
+
+.card-day {
+    font-weight: 600;
+}
+
+.card-img {
+    height: 2rem;
+    width: 2rem;
+    margin: 0 0.5rem;
 }
 
 /* ======== Footer ======== */

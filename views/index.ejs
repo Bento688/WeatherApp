@@ -2,10 +2,9 @@
 
 <section class="header">
     <nav class="header__navbar">
-        <p class="header__weathersee">Weather.see</p>
         <div class="header__links">
-            <p class="header__links-item"><a href="#">Linkedin</a></p>
-            <p class="header__links-item"><a href="#">Github</a></p>
+            <p class="header__links-item"><a href="https://www.linkedin.com/in/benedict-estefan-halkin-074072239">Linkedin</a></p>
+            <p class="header__links-item"><a href="https://www.github.com/Bento688">Github</a></p>
         </div>
     </nav>
 </section>
@@ -27,14 +26,16 @@
         <p class="currentweatherdata__waiting"><%= content %></p>
     <% } else { %>
         <div class="currentweatherdata__container">
-            <p class="currentweatherdata__location"><%= data.location.name %></p>
+            <div class="currentweatherdata__location-container">
+                <p class="currentweatherdata__location"><%= data.location.name %></p>
+                 <img class="current-img" src="<%= data.current.condition.icon %>" alt="weather icon">
+            </div>
             <div class="currentweatherdata__currents">
                 <p class="currentweatherdata__status">
                     <%= data.current.condition.text %> // 
                     <%= data.current.temp_c %> °C // 
                     Feels like: <%= data.current.feelslike_c %> °C
                 </p>
-                <img src="<%= data.current.condition.icon %>" alt="weather icon">
             </div>
             <p class="currentweatherdata__maxmin">Max : <%= data.forecast.forecastday[0].day.maxtemp_c %> °C Min : <%= data.forecast.forecastday[0].day.mintemp_c %> °C</p>
         </div>
@@ -43,14 +44,19 @@
 
 <% if (locals.data) { %>
     <section class="forecast">
+        <h1 class="forecast__heading">10-day forecast</h1>
         <div class="forecast__container">
         <% for (let i = 0; i < 10; i++) { %>
             <div class="forecast__card">
                 <p>
-                    <span class="card-day"><%= data.forecast.forecastday[i].dayName %></span> // 
-                    High : <%= data.forecast.forecastday[i].day.mintemp_c %>°C 
-                    Low : <%= data.forecast.forecastday[i].day.maxtemp_c %>°C // 
-                    Rain % :<%= data.forecast.forecastday[i].day.daily_chance_of_rain %>%
+                    <span class="card-day"><%= data.forecast.forecastday[i].dayName %></span> 
+                    <img class="card-img" src="<%= "https:" + data.forecast.forecastday[i].day.condition.icon %>" alt="Daily Icon">
+                </p>
+                <p>
+                    Low : <span class="card-bold"> <%= data.forecast.forecastday[i].day.mintemp_c %>°C </span> --- High : <span class="card-bold"><%= data.forecast.forecastday[i].day.maxtemp_c %>°C</span> 
+                </p>
+                <p>
+                    Rain % : <span class="card-bold"><%= data.forecast.forecastday[i].day.daily_chance_of_rain %>%</span>
                 </p>
             </div>
         <% } %>    
