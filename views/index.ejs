@@ -12,7 +12,7 @@
 
 <section class="cityinput">
     <div class="cityinput__container">
-        <h2 class="cityinput__heading">Comprehensive Weather Data</h2>
+        <h2 class="cityinput__heading">Weather.see</h2>
 
         <form class="cityinput__form" action="/fetchdata" method="post">
             <label class="cityinput__label" for="cityname">Input City :</label>
@@ -22,20 +22,42 @@
     </div> 
 </section>
 
-<section class="currentweatherdata">
+<section class="currentweatherdata" <%= initial ? 'weather-flex' : '' %>>
     <% if (initial === true) { %>
-        <p class="currentweatherdata__status"><%= content %></p>
+        <p class="currentweatherdata__waiting"><%= content %></p>
     <% } else { %>
         <div class="currentweatherdata__container">
-            <p class="currentweatherdata__status"><%= data.location.name %> // <%= data.current.temp_c %> // <%= data.current.condition.text %> // Feels like: <%= data.current.feelslike_c %></p>
-            <img src="<%= data.current.condition.icon %>" alt="weather icon">
+            <p class="currentweatherdata__location"><%= data.location.name %></p>
+            <div class="currentweatherdata__currents">
+                <p class="currentweatherdata__status">
+                    <%= data.current.condition.text %> // 
+                    <%= data.current.temp_c %> °C // 
+                    Feels like: <%= data.current.feelslike_c %> °C
+                </p>
+                <img src="<%= data.current.condition.icon %>" alt="weather icon">
+            </div>
+            <p class="currentweatherdata__maxmin">Max : <%= data.forecast.forecastday[0].day.maxtemp_c %> °C Min : <%= data.forecast.forecastday[0].day.mintemp_c %> °C</p>
         </div>
     <% } %>
 </section>
 
-<section class="forecast">
+<% if (locals.data) { %>
+    <section class="forecast">
+        <div class="forecast__container">
+        <% for (let i = 0; i < 10; i++) { %>
+            <div class="forecast__card">
+                <p>
+                    <span class="card-day"><%= data.forecast.forecastday[i].dayName %></span> // 
+                    High : <%= data.forecast.forecastday[i].day.mintemp_c %>°C 
+                    Low : <%= data.forecast.forecastday[i].day.maxtemp_c %>°C // 
+                    Rain % :<%= data.forecast.forecastday[i].day.daily_chance_of_rain %>%
+                </p>
+            </div>
+        <% } %>    
+        </div>
+    </section>
+<% } %>
 
-</section>
 
 
 <%- include("partials/footer.ejs") %>
