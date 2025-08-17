@@ -21,6 +21,7 @@ app.post("/fetchdata", async (req, res) => {
     try {
         // console.log(process.env.BASE_URL + "/current.json" + "?key=" + process.env.API_KEY + "&q=" + query);
         const result = await axios.get(process.env.BASE_URL + "/current.json" + "?key=" + process.env.API_KEY + "&q=" + query);
+        result.data.current.condition.icon = "https:" + result.data.current.condition.icon; 
         res.render("index.ejs", { 
             data: result.data,
             initial: false,

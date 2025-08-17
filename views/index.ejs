@@ -1,13 +1,13 @@
 <%- include("partials/header.ejs") %>
 
 <section class="header">
-    <div class="header__container">
-        <nav class="header__navbar">
-            <p class="header__weathersee">Weather.see</p>
-            <p class="linkedin"><a href="#">Linkedin</a></p>
-            <p class="github"><a href="#">Github</a></p>
-        </nav>
-    </div>
+    <nav class="header__navbar">
+        <p class="header__weathersee">Weather.see</p>
+        <div class="header__links">
+            <p class="header__links-item"><a href="#">Linkedin</a></p>
+            <p class="header__links-item"><a href="#">Github</a></p>
+        </div>
+    </nav>
 </section>
 
 <section class="cityinput">
@@ -15,7 +15,7 @@
         <h2 class="cityinput__heading">Comprehensive Weather Data</h2>
 
         <form class="cityinput__form" action="/fetchdata" method="post">
-            <label class="cityinput__label" for="cityname">Input City</label>
+            <label class="cityinput__label" for="cityname">Input City :</label>
             <input class="cityinput__input" type="text" id="cityname" name="city">
             <button class="cityinput__submit" type="submit">Search!</button>
         </form>
@@ -26,7 +26,10 @@
     <% if (initial === true) { %>
         <p class="currentweatherdata__status"><%= content %></p>
     <% } else { %>
-        <p class="currentweatherdata__status"><%= data.location.name %> // <%= data.current.temp_c %> // <%= data.current.condition.text %> // Feels like: <%= data.current.feelslike_c %></p>
+        <div class="currentweatherdata__container">
+            <p class="currentweatherdata__status"><%= data.location.name %> // <%= data.current.temp_c %> // <%= data.current.condition.text %> // Feels like: <%= data.current.feelslike_c %></p>
+            <img src="<%= data.current.condition.icon %>" alt="weather icon">
+        </div>
     <% } %>
 </section>
 

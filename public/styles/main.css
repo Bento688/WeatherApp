@@ -1,0 +1,145 @@
+/* ======= Universal Selectors ======= */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+button {
+    color: none;
+    border: none;
+}
+
+body {
+    font-family: "Poppins", Times, Serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ======= Header ======== */
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.header__links {
+    display: flex;
+    justify-content: space-between;
+}
+.header__links-item {
+    margin: 0px 10px;
+}
+.header__links-item a {
+    color: #333;
+    transition: 0.3s;
+}
+
+.header__links-item a:hover {
+    color: #616161;
+    cursor: pointer;
+}
+
+/* ======= Form Input ======= */
+
+.cityinput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.cityinput__container {
+    width: 60%;
+    display: flex;
+    flex-direction: column; 
+}
+
+.cityinput__heading {
+    padding: 10px;
+    text-align: center;
+}
+
+.cityinput__form {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cityinput__label {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    margin: 0 10px 0 0;
+}
+
+.cityinput__input {
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 4px;
+    height: 35px;
+    width: 300px;
+    margin: 0 10px 0 0;
+    padding: 7px;
+}
+
+.cityinput__submit {
+    font-family: inherit;
+    padding: 6px 20px;
+    background: none;
+    border-radius: 6px;
+    color: #f7f7f7;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+.cityinput__submit:hover {
+    cursor: pointer;
+    background-color: #616161;
+}
+
+/* ======= Current Weather Data ======= */
+
+.currentweatherdata {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 50px;
+}
+
+.currentweatherdata__container {
+    display: flex;
+    justify-content: center;
+}
+
+.currentweatherdata__container img {
+    height: 50px;
+    width: 50px;
+}
+
+.currentweatherdata__status {
+    display: flex;
+    align-items: center;
+    margin: 0 10px 0 0;
+    font-size: 1.5rem;
+}
+
+/* ======== Footer ======== */
+
+footer {
+    padding: 10px 15px ;
+}
+
